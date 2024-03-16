@@ -79,13 +79,13 @@ const AccountDetail: React.FC<AccountDetailProps> = ({account}) => {
   }
 
   return (
-    <div className='AccountDetail container'>
-        <h4>
+    <div className='AccountDetail container bg-dark text-light'>
+        <h3>
             Address: <a href={`https://goerli.etherscan.io/address/${account.address}`} target="_blank" rel="noreferrer">
             {account.address}
             </a><br/>
             Balance: {balance} ETH
-        </h4>
+        </h3>
 
         <div className="form-group">
             <label>Destination Address:</label>
@@ -108,7 +108,7 @@ const AccountDetail: React.FC<AccountDetailProps> = ({account}) => {
         </div>
 
         <button
-            className="btn btn-primary"
+            className="btn btn-success"
             type="button"
             onClick={transfer}
             disabled={!amount || networkResponse.status === 'pending'}
