@@ -46,7 +46,7 @@ const AccountDetail: React.FC<AccountDetailProps> = ({account}) => {
     });
 
     try {
-      const { receipt } = await sendToken(amount, account.address, destinationAddress, account.privateKey);
+      const { receipt } = await sendToken(false, false, amount, account.address, destinationAddress, account.privateKey, []);
 
       if (receipt.status === 1) {
         // Set the network response status to "complete" and the message to the transaction hash
@@ -107,14 +107,25 @@ const AccountDetail: React.FC<AccountDetailProps> = ({account}) => {
             />
         </div>
 
+        <div >
         <button
             className="btn btn-success"
             type="button"
             onClick={transfer}
             disabled={!amount || networkResponse.status === 'pending'}
         >
-            Send {amount} ETH
+            Send {amount} ETH 
         </button>
+
+        <button
+            className="btn btn-success"
+            type="button"
+            onClick={transfer}
+            disabled={!amount || networkResponse.status === 'pending'}
+        >
+            Send {amount} ETH via XX network
+        </button>
+        </div>
 
         {networkResponse.status &&
             <>

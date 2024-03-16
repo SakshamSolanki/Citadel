@@ -5,6 +5,7 @@ import { goerli } from '../../models/Chain';
 import { Transaction } from '../../models/Transaction';
 import { TransactionService } from '../../services/TransactionService';
 import { shortenAddress } from '../../utils/AccountUtils';
+import { AddressList } from '../AddressList';
 
 type AccountTransactionsProps = {
   account: Account,
@@ -126,8 +127,15 @@ const AccountTransactions: React.FC<AccountTransactionsProps> = ({ account }) =>
             ))}
             </tbody>
         </table>
+        <br />
+        <div>
+        <AddressList/>
+        </div>
     </div>
+    
+    
   );
+    
 };
 
 export default AccountTransactions;

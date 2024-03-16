@@ -16,7 +16,7 @@ export const Navbar = () => {
         <li className="nav-item">
           <a className="nav-link text-success font-weight-bolder" href="#">Transactions</a>
         </li>
-        <li className="nav-item dropdown">
+        {/* <li className="nav-item dropdown"> */}
           {/* <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
           </a>
@@ -31,10 +31,16 @@ export const Navbar = () => {
         </li>
         <li className="nav-item">
           <a className="nav-link disabled" aria-disabled="true">Disabled</a> */}
-        </li>
+        {/* </li> */}
+
       </ul>
-      <form className="d-flex" role="search">
+      <div className="form-check form-switch">
+      <input className="form-check-input text" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+      <label className="form-check-label text-success" htmlFor="flexSwitchCheckDefault">Restriction Mode</label>
+    </div>
+      <form className ="d-flex" role="search">
         {/* <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"> */}
+
         <button className="btn btn-outline-success" type="submit">About</button>
       </form>
     </div>
