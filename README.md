@@ -13,4 +13,5 @@ A crypto wallet that makes it easy to use the blockchain.
 ```
 yarn install
 yarn start
+
 ```
