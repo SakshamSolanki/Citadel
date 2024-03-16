@@ -68,7 +68,7 @@ function AccountCreate() {
     
 
 
-    <div className='AccountCreate p-5 m-3 card shadow bg-dark text-light'>
+    <div className='AccountCreate w-50 mx-auto ms-auto p-5 m-3 card bg-dark text-light'>
       
       <h1>
         Citadel

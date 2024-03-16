@@ -7,7 +7,7 @@ function App() {
   return (
   
    
-    <div className="App container-xxl bg-dark text-light mg-0">
+    <div className="App container w-100 bg-success text-light">
       <br />
       <AccountCreate />
       <br />

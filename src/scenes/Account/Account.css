@@ -1,3 +1,7 @@
 .AccountTransactions {
     overflow-x: auto;
 }
+
+.AccountCreate {
+    box-shadow: 0px 0px 10px rgba(4, 10, 0, 1);
+}
