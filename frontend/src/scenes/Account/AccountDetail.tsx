@@ -6,6 +6,8 @@ import AccountTransactions from './AccountTransactions';
 import { ethers } from 'ethers';
 import { toFixedIfNecessary } from '../../utils/AccountUtils';
 import './Account.css';
+import Modal from '../Modal';
+import Input from '../Input';
 
 interface AccountDetailProps {
   account: Account
@@ -13,6 +15,7 @@ interface AccountDetailProps {
 
 const AccountDetail: React.FC<AccountDetailProps> = ({account}) => {
   const [destinationAddress, setDestinationAddress] = useState('');
+  const [showModal, setShowModal] = useState(false);
   const [amount, setAmount] = useState(0);
   const [balance, setBalance] = useState(account.balance)
 
@@ -37,6 +40,14 @@ const AccountDetail: React.FC<AccountDetailProps> = ({account}) => {
   function handleAmountChange(event: React.ChangeEvent<HTMLInputElement>) {
     setAmount(Number.parseFloat(event.target.value));
   }
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   async function transfer() {
     // Set the network response status to "pending"
@@ -125,6 +136,12 @@ const AccountDetail: React.FC<AccountDetailProps> = ({account}) => {
         >
             Send {amount} ETH via XX network
         </button>
+
+        {/* <button onClick={handleOpenModal}>Open Modal</button>
+        <Modal isOpen={showModal} onClose={handleCloseModal}>
+          {/* Modal content */}
+          {/* {<Input label="Enter your name" onChange={(value : any) => console.log(value)} />} Example usage */}
+        {/* </Modal>  */}
         </div>
 
         {networkResponse.status &&
