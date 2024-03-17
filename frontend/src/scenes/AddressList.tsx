@@ -1,17 +1,26 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 
 export const AddressList = () => {
-  const [address, setAddress] = useState('');
+  const [address , setAddress] = useState('')
+  const [addresses, setAddresses] = useState<string[]>([]);
+
+  function handleAddressChange(event: ChangeEvent<HTMLInputElement>): void {
+    setAddress(event.target.value);
+  }
+
+  function addAddress() {
+    setAddresses([... addresses, address])
+  }
 
 //   const handleAddressChange = (event) => {
 //     setAddress(event.target.value);
 //   };
-const addresses = [
-    "0x1234567890123456789012345678901234567890",
-    "0xabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd",
-    "0x3333333333333333333333333333333333333333",
-    "0x4444444444444444444444444444444444444444"
-  ];
+// const addresses = [
+//     "0x1234567890123456789012345678901234567890",
+//     "0xabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd",
+//     "0x3333333333333333333333333333333333333333",
+//     "0x4444444444444444444444444444444444444444"
+//   ];
   return (
     <div className="form-group">
       <label>Add Address:</label>
@@ -41,11 +50,13 @@ const addresses = [
           <input
             className="form-control custom-form-control"
             type="text"
+            value={address}
+            onChange={handleAddressChange}
             placeholder="Enter blocked address"
           />
         </div>
         <div className="col-auto">
-          <button type="button" className="btn btn-outline-danger">Add</button>
+          <button type="button" className="btn btn-outline-danger" onClick={addAddress}>Add</button>
         </div>
         
       </div>

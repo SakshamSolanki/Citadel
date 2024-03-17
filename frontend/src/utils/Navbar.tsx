@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 export const Navbar = () => {
+
+  const [restrictedMode , setRestricetedMode] = useState(false)
+
+  const onClick = () => {
+    setRestricetedMode(!restrictedMode)
+  }
+
   return (
     <nav className="navbar navbar-expand-lg bg-dark space-evenly">
   <div className="container-fluid">

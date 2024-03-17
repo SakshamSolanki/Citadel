@@ -17,6 +17,7 @@ const AccountDetail: React.FC<AccountDetailProps> = ({account}) => {
   const [destinationAddress, setDestinationAddress] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [amount, setAmount] = useState(0);
+  const [otp, setOtp] = useState(0);
   const [balance, setBalance] = useState(account.balance)
 
   const [networkResponse, setNetworkResponse] = useState<{ status: null | 'pending' | 'complete' | 'error', message: string | React.ReactElement }>({
@@ -39,6 +40,10 @@ const AccountDetail: React.FC<AccountDetailProps> = ({account}) => {
 
   function handleAmountChange(event: React.ChangeEvent<HTMLInputElement>) {
     setAmount(Number.parseFloat(event.target.value));
+  }
+
+  function handleOtpChange(event: React.ChangeEvent<HTMLInputElement>){
+    setOtp(Number.parseFloat(event.target.value));
   }
 
   const handleOpenModal = () => {
@@ -117,6 +122,23 @@ const AccountDetail: React.FC<AccountDetailProps> = ({account}) => {
             onChange={handleAmountChange}
             />
         </div>
+
+        <div className="form-group">
+            <label>OTP</label>
+            <input
+            className="form-control"
+            type="number"
+            value={otp}
+            onChange={handleOtpChange}
+            />
+        </div>
+
+        <button
+            className="btn btn-success"
+            type="button"
+            // onClick={transfer}
+            // disabled={!amount || networkResponse.status === 'pending'}
+        > Get OTP</button>
 
         <div >
         <button
